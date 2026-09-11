@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UPSC CSE Prelims Rank & Score Calculator | All-India AIR & Error Autopsy</title>
+  <meta name="description" content="Calculate your UPSC Prelims Net Score, All-India Rank (AIR), Percentile, and marks lost to silly mistakes with our official negative-marking calculator.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #070a12;
+      --bg-card: rgba(15, 23, 42, 0.82);
+      --bg-card-border: rgba(255, 255, 255, 0.08);
+      --bg-input: #0a0f1d;
+      --primary-gold: #f59e0b;
+      --primary-gold-glow: rgba(245, 158, 11, 0.35);
+      --primary-cyan: #06b6d4;
+      --primary-emerald: #10b981;
+      --primary-rose: #f43f5e;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+      --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
+      --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-display: 'Outfit', system-ui, -apple-system, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(245, 158, 11, 0.12) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.10) 0px, transparent 50%),
+        radial-gradient(at 50% 50%, rgba(15, 23, 42, 0.6) 0px, transparent 100%);
+      background-attachment: fixed;
+      color: var(--text-main);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      line-height: 1.5;
+      padding: 24px 16px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: 32px;
+      position: relative;
+    }
+
+    .badge-official {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      border-radius: 9999px;
+      color: var(--primary-gold);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #ffffff 30%, #cbd5e1 70%, #f59e0b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* Mode Toggles */
+    .controls-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .paper-switcher {
+      display: flex;
+      background: rgba(15, 23, 42, 0.9);
+      padding: 4px;
+      border-radius: 9999px;
+      border: 1px solid var(--bg-card-border);
+    }
+
+    .paper-btn {
+      padding: 8px 20px;
+      border-radius: 9999px;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .paper-btn.active {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #0b0f19;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+    }
+
+    .category-select-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      padding: 6px 14px;
+      border-radius: 9999px;
+    }
+
+    .category-select-wrapper label {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .category-select-wrapper select {
+      background: transparent;
+      border: none;
+      color: var(--primary-gold);
+      font-weight: 600;
+      font-size: 0.9rem;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .category-select-wrapper select option {
+      background: #0f172a;
+      color: var(--text-main);
+    }
+
+    /* Main Grid */
+    .calc-layout {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    @media (max-width: 960px) {
+      .calc-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Card Styles */
+    .card {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--bg-card-border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-card);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.4), transparent);
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .card-title .tag {
+      font-size: 0.75rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.07);
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Input Controls */
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    .input-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .input-label {
+      font-weight: 600;
+      font-size: 0.92rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .dot-correct { background-color: var(--primary-emerald); box-shadow: 0 0 8px var(--primary-emerald); }
+    .dot-incorrect { background-color: var(--primary-rose); box-shadow: 0 0 8px var(--primary-rose); }
+    .dot-unattempted { background-color: var(--text-dim); }
+
+    .input-value-box {
+      background: var(--bg-input);
+      border: 1px solid var(--bg-card-border);
+      border-radius: var(--radius-sm);
+      color: var(--text-main);
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      width: 76px;
+      text-align: center;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .input-value-box:focus {
+      border-color: var(--primary-gold);
+    }
+
+    .slider {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 999px;
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+      cursor: pointer;
+    }
+
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--primary-gold);
+      cursor: pointer;
+      box-shadow: 0 0 10px var(--primary-gold-glow);
+      transition: transform 0.1s ease;
+    }
+
+    .slider::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+    }
+
+    .slider-correct::-webkit-slider-thumb { background: var(--primary-emerald); box-shadow: 0 0 10px rgba(16, 185, 129, 0.5); }
+    .slider-incorrect::-webkit-slider-thumb { background: var(--primary-rose); box-shadow: 0 0 10px rgba(244, 63, 94, 0.5); }
+
+    /* Summary Pills */
+    .pill-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .pill-stat {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid var(--bg-card-border);
+      border-radius: var(--radius-sm);
+      padding: 10px;
+      text-align: center;
+    }
+
+    .pill-stat .label {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 2px;
+    }
+
+    .pill-stat .val {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    /* Error Autopsy Section */
+    .autopsy-box {
+      margin-top: 24px;
+      background: rgba(10, 15, 29, 0.75);
+      border: 1px solid rgba(245, 158, 11, 0.2);
+      border-radius: var(--radius-md);
+      padding: 18px;
+    }
+
+    .autopsy-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .autopsy-header h3 {
+      font-family: var(--font-display);
+      font-size: 0.98rem;
+      color: var(--primary-gold);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .error-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    @media (max-width: 500px) {
+      .error-grid { grid-template-columns: 1fr; }
+    }
+
+    .error-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .error-item label {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .error-item input {
+      width: 48px;
+      padding: 2px 6px;
+      background: var(--bg-input);
+      border: 1px solid var(--bg-card-border);
+      color: var(--text-main);
+      border-radius: 4px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    /* Result Panel */
+    .result-card {
+      background: linear-gradient(180deg, rgba(20, 29, 53, 0.9) 0%, rgba(10, 15, 29, 0.95) 100%);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      position: sticky;
+      top: 20px;
+    }
+
+    .score-hero {
+      text-align: center;
+      padding: 16px 0 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      position: relative;
+    }
+
+    .score-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+
+    .score-number {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1;
+      background: linear-gradient(135deg, #ffffff, #fef08a, #f59e0b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .status-cleared {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: var(--primary-emerald);
+    }
+
+    .status-borderline {
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      color: var(--primary-gold);
+    }
+
+    .status-danger {
+      background: rgba(244, 63, 94, 0.15);
+      border: 1px solid rgba(244, 63, 94, 0.4);
+      color: var(--primary-rose);
+    }
+
+    .rank-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .rank-box {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      text-align: center;
+    }
+
+    .rank-box .title {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .rank-box .highlight {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--primary-cyan);
+    }
+
+    .potential-score-banner {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.12), rgba(16, 185, 129, 0.1));
+      border: 1px dashed rgba(245, 158, 11, 0.4);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      margin-bottom: 20px;
+    }
+
+    .potential-score-banner .header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: var(--primary-gold);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .potential-score-banner .desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* Cutoff Benchmark Table */
+    .cutoff-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+      font-size: 0.8rem;
+    }
+
+    .cutoff-table th, .cutoff-table td {
+      padding: 6px 8px;
+      text-align: left;
+    }
+
+    .cutoff-table th {
+      color: var(--text-dim);
+      font-weight: 600;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .cutoff-table td {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      color: var(--text-muted);
+    }
+
+    .cutoff-table tr.current-match td {
+      color: var(--primary-gold);
+      font-weight: 700;
+      background: rgba(245, 158, 11, 0.08);
+    }
+
+    /* Action Buttons */
+    .btn-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 10px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.88rem;
+      cursor: pointer;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-gold), #d97706);
+      color: #0b0f19;
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.07);
+      color: var(--text-main);
+      border: 1px solid var(--bg-card-border);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    /* History Log */
+    .history-card {
+      margin-top: 24px;
+    }
+
+    .history-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-height: 220px;
+      overflow-y: auto;
+    }
+
+    .history-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.85rem;
+    }
+
+    .history-item .tag {
+      font-weight: 700;
+      color: var(--primary-gold);
+    }
+
+    /* Toast */
+    #toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #1e293b;
+      border: 1px solid var(--primary-gold);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 1000;
+    }
+
+    #toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="badge-official">🏛️ UPSC Civil Services Examination</div>
+      <h1>Prelims Rank & Score Calculator</h1>
+      <p class="subtitle">Official negative-marking engine, All-India simulated rank (AIR), percentile distribution, and silly-mistake mark recovery autopsy.</p>
+    </header>
+
+    <!-- Controls Bar -->
+    <div class="controls-bar">
+      <div class="paper-switcher" id="paperSwitcher">
+        <button type="button" class="paper-btn active" id="btnGS" onclick="switchPaper('GS')">Paper I: General Studies (GS)</button>
+        <button type="button" class="paper-btn" id="btnCSAT" onclick="switchPaper('CSAT')">Paper II: CSAT</button>
+      </div>
+
+      <div class="category-select-wrapper">
+        <label for="categorySelect">Category:</label>
+        <select id="categorySelect" onchange="calculate()">
+          <option value="GEN">General (UR)</option>
+          <option value="EWS">EWS</option>
+          <option value="OBC">OBC</option>
+          <option value="SC">SC</option>
+          <option value="ST">ST</option>
+          <option value="PwBD">PwBD</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Main Calculator Layout -->
+    <main class="calc-layout">
+      <!-- Input Panel -->
+      <section class="card" aria-labelledby="inputTitle">
+        <div class="card-title">
+          <span id="inputTitle">Mock Test Attempt Inputs</span>
+          <span class="tag" id="paperConfigBadge">100 Questions • 200 Marks (+2 / -0.667)</span>
+        </div>
+
+        <!-- Correct Questions -->
+        <div class="input-group">
+          <div class="input-header">
+            <span class="input-label">
+              <span class="dot dot-correct"></span> Correct Questions (+<span id="labelPositiveMark">2.00</span> each)
+            </span>
+            <input type="number" id="numCorrect" class="input-value-box" min="0" max="100" value="68" oninput="syncFromNumber('correct')">
+          </div>
+          <input type="range" id="sliderCorrect" class="slider slider-correct" min="0" max="100" value="68" oninput="syncFromSlider('correct')">
+        </div>
+
+        <!-- Incorrect Questions -->
+        <div class="input-group">
+          <div class="input-header">
+            <span class="input-label">
+              <span class="dot dot-incorrect"></span> Incorrect Questions (-<span id="labelNegativeMark">0.667</span> each)
+            </span>
+            <input type="number" id="numIncorrect" class="input-value-box" min="0" max="100" value="22" oninput="syncFromNumber('incorrect')">
+          </div>
+          <input type="range" id="sliderIncorrect" class="slider slider-incorrect" min="0" max="100" value="22" oninput="syncFromSlider('incorrect')">
+        </div>
+
+        <!-- Unattempted Display -->
+        <div class="input-group">
+          <div class="input-header">
+            <span class="input-label">
+              <span class="dot dot-unattempted"></span> Unattempted Questions (0 Marks)
+            </span>
+            <span id="valUnattempted" class="input-value-box" style="display:inline-block; border-color:transparent; background:transparent;">10</span>
+          </div>
+        </div>
+
+        <!-- Quick Stat Pills -->
+        <div class="pill-grid">
+          <div class="pill-stat">
+            <div class="label">Total Attempted</div>
+            <div class="val" id="statAttempted">90</div>
+          </div>
+          <div class="pill-stat">
+            <div class="label">Accuracy Rate</div>
+            <div class="val" id="statAccuracy" style="color: var(--primary-emerald);">75.6%</div>
+          </div>
+          <div class="pill-stat">
+            <div class="label">Negative Penalty</div>
+            <div class="val" id="statPenalty" style="color: var(--primary-rose);">-14.67</div>
+          </div>
+        </div>
+
+        <!-- Error Autopsy / Root Cause Diagnosis -->
+        <div class="autopsy-box">
+          <div class="autopsy-header">
+            <h3>🔍 Error Autopsy (Tag Your Mistakes)</h3>
+            <span style="font-size:0.75rem; color:var(--text-dim);">Must sum to Incorrect</span>
+          </div>
+          <div class="error-grid">
+            <div class="error-item">
+              <label for="errSilly">🟡 Silly Mistakes (Misread):</label>
+              <input type="number" id="errSilly" min="0" max="100" value="7" oninput="calculate()">
+            </div>
+            <div class="error-item">
+              <label for="err5050">🔵 Failed 50-50 Guess:</label>
+              <input type="number" id="err5050" min="0" max="100" value="8" oninput="calculate()">
+            </div>
+            <div class="error-item">
+              <label for="errGap">🟣 Knowledge Gap (Unstudied):</label>
+              <input type="number" id="errGap" min="0" max="100" value="5" oninput="calculate()">
+            </div>
+            <div class="error-item">
+              <label for="errWild">🔴 Blind Over-attempt:</label>
+              <input type="number" id="errWild" min="0" max="100" value="2" oninput="calculate()">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Results & Rank Simulation Panel -->
+      <aside class="card result-card" aria-labelledby="resultTitle">
+        <div class="card-title">
+          <span id="resultTitle">Performance Analysis</span>
+          <span class="tag" id="examTypeBadge">Prelims GS-I</span>
+        </div>
+
+        <!-- Score Hero Display -->
+        <div class="score-hero">
+          <div class="score-label">Computed Net Score</div>
+          <div class="score-number" id="resNetScore">121.33</div>
+          <div id="resStatusBadge" class="status-badge status-cleared">
+            🟢 Safe Cutoff Qualified
+          </div>
+        </div>
+
+        <!-- Simulated AIR and Percentile -->
+        <div class="rank-grid">
+          <div class="rank-box">
+            <div class="title">Simulated AIR</div>
+            <div class="highlight" id="resAIR">~1,840</div>
+            <div style="font-size:0.72rem; color:var(--text-dim); margin-top:2px;">Out of ~500,000</div>
+          </div>
+          <div class="rank-box">
+            <div class="title">Percentile</div>
+            <div class="highlight" id="resPercentile">99.6%</div>
+            <div style="font-size:0.72rem; color:var(--text-dim); margin-top:2px;">Top 1% bracket</div>
+          </div>
+        </div>
+
+        <!-- Potential Score Banner (Silly Recovery) -->
+        <div class="potential-score-banner" id="potentialBanner">
+          <div class="header">
+            <span>✨ Potential Score Recovery</span>
+            <span id="resPotentialScore">140.00 (+18.67 Marks)</span>
+          </div>
+          <p class="desc" id="resPotentialDesc">
+            Eliminating <strong>7 silly mistakes</strong> recovers 14.00 positive marks + removes 4.67 negative deductions, boosting your rank from <strong>AIR ~1,840</strong> to <strong>AIR ~320</strong>!
+          </p>
+        </div>
+
+        <!-- Cutoff Comparison Benchmarks -->
+        <div style="margin-top: 14px;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">Historical Cutoff Benchmarks:</span>
+            <span style="font-size:0.75rem; color:var(--primary-gold);" id="categoryDisplayTag">General Category</span>
+          </div>
+          <table class="cutoff-table" id="cutoffTable">
+            <thead>
+              <tr>
+                <th>Exam Year</th>
+                <th>Cutoff Marks</th>
+                <th>Your Margin</th>
+              </tr>
+            </thead>
+            <tbody id="cutoffTableBody">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="btn-row">
+          <button type="button" class="btn btn-primary" onclick="saveAttempt()">💾 Save to History</button>
+          <button type="button" class="btn btn-secondary" onclick="copySummary()">📋 Copy Summary</button>
+        </div>
+      </aside>
+    </main>
+
+    <!-- Attempt History Log -->
+    <section class="card history-card" aria-labelledby="historyTitle">
+      <div class="card-title">
+        <span id="historyTitle">Mock Test History Ledger</span>
+        <button type="button" class="btn btn-secondary" style="padding:4px 10px; font-size:0.75rem;" onclick="clearHistory()">Clear History</button>
+      </div>
+      <ul class="history-list" id="historyList">
+        <li style="color:var(--text-dim); font-size:0.85rem; text-align:center; padding:12px;">No tests logged yet. Click "Save to History" above to track your mock trajectory!</li>
+      </ul>
+    </section>
+  </div>
+
+  <div id="toast">Copied to clipboard!</div>
+
+  <script>
+    // State management
+    const state = {
+      paper: 'GS', // 'GS' or 'CSAT'
+      category: 'GEN',
+      totalQuestions: 100,
+      marksPerCorrect: 2.00,
+      penaltyPerIncorrect: 0.667,
+      qualifyingThreshold: 66.67, // For CSAT
+      correct: 68,
+      incorrect: 22,
+      silly: 7,
+      guess5050: 8,
+      knowledgeGap: 5,
+      blindGuess: 2,
+      history: []
+    };
+
+    // Cutoffs by year (General Category)
+    const cutoffs = [
+      { year: '2023', score: 75.41, note: 'Toughest (Pairs format)' },
+      { year: '2022', score: 88.22, note: 'Standard' },
+      { year: '2021', score: 87.54, note: 'Standard' },
+      { year: '2020', score: 92.51, note: 'Moderate' },
+      { year: '2019', score: 98.00, note: 'High scoring' }
+    ];
+
+    // Category cutoff adjustment factors (approximate delta from General)
+    const categoryDeltas = {
+      'GEN': 0,
+      'EWS': -8.5,
+      'OBC': -3.2,
+      'SC': -14.0,
+      'ST': -17.5,
+      'PwBD': -25.0
+    };
+
+    function switchPaper(type) {
+      state.paper = type;
+      document.getElementById('btnGS').classList.toggle('active', type === 'GS');
+      document.getElementById('btnCSAT').classList.toggle('active', type === 'CSAT');
+
+      if (type === 'GS') {
+        state.totalQuestions = 100;
+        state.marksPerCorrect = 2.00;
+        state.penaltyPerIncorrect = 0.667;
+        document.getElementById('paperConfigBadge').textContent = '100 Questions • 200 Marks (+2 / -0.667)';
+        document.getElementById('labelPositiveMark').textContent = '2.00';
+        document.getElementById('labelNegativeMark').textContent = '0.667';
+        document.getElementById('examTypeBadge').textContent = 'Prelims GS-I';
+        document.getElementById('numCorrect').max = 100;
+        document.getElementById('sliderCorrect').max = 100;
+        document.getElementById('numIncorrect').max = 100;
+        document.getElementById('sliderIncorrect').max = 100;
+      } else {
+        state.totalQuestions = 80;
+        state.marksPerCorrect = 2.50;
+        state.penaltyPerIncorrect = 0.833;
+        document.getElementById('paperConfigBadge').textContent = '80 Questions • 200 Marks (+2.5 / -0.833)';
+        document.getElementById('labelPositiveMark').textContent = '2.50';
+        document.getElementById('labelNegativeMark').textContent = '0.833';
+        document.getElementById('examTypeBadge').textContent = 'Prelims CSAT (Paper-II)';
+        document.getElementById('numCorrect').max = 80;
+        document.getElementById('sliderCorrect').max = 80;
+        document.getElementById('numIncorrect').max = 80;
+        document.getElementById('sliderIncorrect').max = 80;
+        if (state.correct + state.incorrect > 80) {
+          state.correct = 50;
+          state.incorrect = 15;
+          document.getElementById('numCorrect').value = 50;
+          document.getElementById('sliderCorrect').value = 50;
+          document.getElementById('numIncorrect').value = 15;
+          document.getElementById('sliderIncorrect').value = 15;
+        }
+      }
+      calculate();
+    }
+
+    function syncFromSlider(type) {
+      if (type === 'correct') {
+        let val = parseInt(document.getElementById('sliderCorrect').value) || 0;
+        if (val + state.incorrect > state.totalQuestions) {
+          state.incorrect = state.totalQuestions - val;
+          document.getElementById('numIncorrect').value = state.incorrect;
+          document.getElementById('sliderIncorrect').value = state.incorrect;
+        }
+        state.correct = val;
+        document.getElementById('numCorrect').value = val;
+      } else {
+        let val = parseInt(document.getElementById('sliderIncorrect').value) || 0;
+        if (state.correct + val > state.totalQuestions) {
+          state.correct = state.totalQuestions - val;
+          document.getElementById('numCorrect').value = state.correct;
+          document.getElementById('sliderCorrect').value = state.correct;
+        }
+        state.incorrect = val;
+        document.getElementById('numIncorrect').value = val;
+      }
+      calculate();
+    }
+
+    function syncFromNumber(type) {
+      if (type === 'correct') {
+        let val = Math.min(state.totalQuestions, Math.max(0, parseInt(document.getElementById('numCorrect').value) || 0));
+        if (val + state.incorrect > state.totalQuestions) {
+          state.incorrect = state.totalQuestions - val;
+          document.getElementById('numIncorrect').value = state.incorrect;
+          document.getElementById('sliderIncorrect').value = state.incorrect;
+        }
+        state.correct = val;
+        document.getElementById('sliderCorrect').value = val;
+      } else {
+        let val = Math.min(state.totalQuestions, Math.max(0, parseInt(document.getElementById('numIncorrect').value) || 0));
+        if (state.correct + val > state.totalQuestions) {
+          state.correct = state.totalQuestions - val;
+          document.getElementById('numCorrect').value = state.correct;
+          document.getElementById('sliderCorrect').value = state.correct;
+        }
+        state.incorrect = val;
+        document.getElementById('sliderIncorrect').value = val;
+      }
+      calculate();
+    }
+
+    // Normal Cumulative Distribution Function approximation
+    function normalCDF(x, mean, stdDev) {
+      const z = (x - mean) / stdDev;
+      const t = 1.0 / (1.0 + 0.2316419 * Math.abs(z));
+      const d = 0.3989423 * Math.exp(-z * z / 2);
+      let p = d * t * (0.3193815 + t * (-0.3565638 + t * (1.781478 + t * (-1.821256 + t * 1.330274))));
+      if (z > 0) p = 1.0 - p;
+      return 1.0 - p; // Percentile between 0 and 1
+    }
+
+    function calculate() {
+      state.category = document.getElementById('categorySelect').value;
+      const unattempted = Math.max(0, state.totalQuestions - (state.correct + state.incorrect));
+      const attempted = state.correct + state.incorrect;
+      const accuracy = attempted > 0 ? ((state.correct / attempted) * 100).toFixed(1) : 0;
+      
+      const grossMarks = state.correct * state.marksPerCorrect;
+      const penalty = state.incorrect * state.penaltyPerIncorrect;
+      const netScore = Math.max(-66.7, grossMarks - penalty);
+
+      // Silly mistakes & potential score
+      const sillyCount = Math.min(state.incorrect, parseInt(document.getElementById('errSilly').value) || 0);
+      const sillyLoss = sillyCount * (state.marksPerCorrect + state.penaltyPerIncorrect);
+      const potentialScore = netScore + sillyLoss;
+
+      // Update basic fields
+      document.getElementById('valUnattempted').textContent = unattempted;
+      document.getElementById('statAttempted').textContent = attempted;
+      document.getElementById('statAccuracy').textContent = accuracy + '%';
+      document.getElementById('statPenalty').textContent = '-' + penalty.toFixed(2);
+      document.getElementById('resNetScore').textContent = netScore.toFixed(2);
+
+      // Rank and Percentile calculation
+      // Mean ~55 marks, std dev ~22 marks for UPSC GS Paper I
+      const mean = state.paper === 'GS' ? 54 : 62;
+      const stdDev = state.paper === 'GS' ? 21 : 24;
+      const totalCandidates = 500000;
+      
+      let percentile = normalCDF(netScore, mean, stdDev) * 100;
+      percentile = Math.min(99.99, Math.max(0.01, percentile));
+      
+      let air = Math.max(1, Math.round((1 - (percentile / 100)) * totalCandidates));
+
+      // Potential AIR
+      let potPercentile = normalCDF(potentialScore, mean, stdDev) * 100;
+      potPercentile = Math.min(99.99, Math.max(0.01, potPercentile));
+      let potAir = Math.max(1, Math.round((1 - (potPercentile / 100)) * totalCandidates));
+
+      document.getElementById('resPercentile').textContent = percentile.toFixed(1) + '%';
+      document.getElementById('resAIR').textContent = '~' + air.toLocaleString('en-IN');
+
+      // Status Badge logic
+      const statusBadge = document.getElementById('resStatusBadge');
+      if (state.paper === 'CSAT') {
+        if (netScore >= 66.67) {
+          statusBadge.className = 'status-badge status-cleared';
+          statusBadge.textContent = '🟢 CSAT Qualified (Score: ' + netScore.toFixed(2) + ' ≥ 66.67)';
+        } else {
+          statusBadge.className = 'status-badge status-danger';
+          statusBadge.textContent = '🔴 CSAT Disqualified (Need ' + (66.67 - netScore).toFixed(2) + ' more marks)';
+        }
+      } else {
+        const catDelta = categoryDeltas[state.category] || 0;
+        const targetCutoff = 88.0 + catDelta;
+        if (netScore >= targetCutoff + 15) {
+          statusBadge.className = 'status-badge status-cleared';
+          statusBadge.textContent = '💎 Diamond League (Topper Bracket)';
+        } else if (netScore >= targetCutoff) {
+          statusBadge.className = 'status-badge status-cleared';
+          statusBadge.textContent = '🟢 Safe Cutoff Qualified';
+        } else if (netScore >= targetCutoff - 12) {
+          statusBadge.className = 'status-badge status-borderline';
+          statusBadge.textContent = '🟡 Borderline Zone (Risk)';
+        } else {
+          statusBadge.className = 'status-badge status-danger';
+          statusBadge.textContent = '🔴 Cutoff Missed';
+        }
+      }
+
+      // Potential Score description
+      document.getElementById('resPotentialScore').textContent = potentialScore.toFixed(2) + ' (+' + sillyLoss.toFixed(2) + ' Marks)';
+      document.getElementById('resPotentialDesc').innerHTML = 
+        `Eliminating <strong>${sillyCount} silly mistakes</strong> recovers ${(sillyCount * state.marksPerCorrect).toFixed(2)} positive marks + removes ${(sillyCount * state.penaltyPerIncorrect).toFixed(2)} negative deductions, boosting your rank from <strong>AIR ~${air.toLocaleString('en-IN')}</strong> to <strong>AIR ~${potAir.toLocaleString('en-IN')}</strong>!`;
+
+      // Render Cutoff Table
+      renderCutoffTable(netScore);
+    }
+
+    function renderCutoffTable(netScore) {
+      const tbody = document.getElementById('cutoffTableBody');
+      const catDelta = categoryDeltas[state.category] || 0;
+      document.getElementById('categoryDisplayTag').textContent = document.getElementById('categorySelect').options[document.getElementById('categorySelect').selectedIndex].text;
+
+      tbody.innerHTML = cutoffs.map(item => {
+        const adjustedCutoff = Math.max(45, (item.score + catDelta)).toFixed(2);
+        const margin = (netScore - adjustedCutoff);
+        const marginStr = margin >= 0 ? `+${margin.toFixed(2)}` : `${margin.toFixed(2)}`;
+        const marginColor = margin >= 0 ? 'var(--primary-emerald)' : 'var(--primary-rose)';
+        const isQualified = margin >= 0;
+
+        return `
+          <tr class="${isQualified ? 'current-match' : ''}">
+            <td><strong>${item.year}</strong> (${item.note})</td>
+            <td>${adjustedCutoff}</td>
+            <td style="color:${marginColor}; font-weight:700;">${marginStr} ${isQualified ? '✓' : '✗'}</td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function saveAttempt() {
+      const netScore = parseFloat(document.getElementById('resNetScore').textContent);
+      const air = document.getElementById('resAIR').textContent;
+      const attempt = {
+        date: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+        paper: state.paper,
+        score: netScore,
+        correct: state.correct,
+        incorrect: state.incorrect,
+        air: air
+      };
+
+      state.history.unshift(attempt);
+      if (state.history.length > 8) state.history.pop();
+      renderHistory();
+      showToast('Attempt saved to history!');
+    }
+
+    function renderHistory() {
+      const list = document.getElementById('historyList');
+      if (state.history.length === 0) {
+        list.innerHTML = '<li style="color:var(--text-dim); font-size:0.85rem; text-align:center; padding:12px;">No tests logged yet. Click "Save to History" above!</li>';
+        return;
+      }
+      list.innerHTML = state.history.map((item, idx) => `
+        <li class="history-item">
+          <div>
+            <span class="tag">[${item.paper}]</span>
+            <span>Score: <strong>${item.score.toFixed(2)}</strong></span>
+            <span style="color:var(--text-dim); font-size:0.75rem; margin-left:6px;">(${item.correct}C / ${item.incorrect}W)</span>
+          </div>
+          <div style="font-weight:700; color:var(--primary-cyan);">${item.air}</div>
+        </li>
+      `).join('');
+    }
+
+    function clearHistory() {
+      state.history = [];
+      renderHistory();
+      showToast('History cleared');
+    }
+
+    function copySummary() {
+      const netScore = document.getElementById('resNetScore').textContent;
+      const air = document.getElementById('resAIR').textContent;
+      const percentile = document.getElementById('resPercentile').textContent;
+      const silly = document.getElementById('errSilly').value;
+      const potential = document.getElementById('resPotentialScore').textContent;
+
+      const text = `🎯 UPSC CSE Mock Test Diagnostic Summary\n` +
+        `• Paper: ${state.paper === 'GS' ? 'General Studies I' : 'CSAT Paper II'}\n` +
+        `• Net Score: ${netScore} / 200\n` +
+        `• Simulated AIR: ${air} (${percentile} percentile)\n` +
+        `• Accuracy: ${state.correct}/${state.correct + state.incorrect} (${document.getElementById('statAccuracy').textContent})\n` +
+        `• Silly Mistakes: ${silly}\n` +
+        `• Potential Score: ${potential}\n` +
+        `Generated via UPSC Aspirant Exam Tracker`;
+
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('Summary copied to clipboard!');
+      }).catch(() => {
+        showToast('Score: ' + netScore + ' | AIR: ' + air);
+      });
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    // Initialize on load
+    window.addEventListener('DOMContentLoaded', () => {
+      calculate();
+    });
+  </script>
+</body>
+</html>

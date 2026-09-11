@@ -1,0 +1,168 @@
+{
+  "prelims_subject_trends": [
+    {
+      "subject": "Economy & Agriculture",
+      "avg_questions": 18.1,
+      "percentage": 18.1,
+      "tier": "High-Yield Trio",
+      "trend": [
+        { "year": 2019, "questions": 21 },
+        { "year": 2020, "questions": 23 },
+        { "year": 2021, "questions": 14 },
+        { "year": 2022, "questions": 18 },
+        { "year": 2023, "questions": 14 },
+        { "year": 2024, "questions": 18 },
+        { "year": 2025, "questions": 17 }
+      ],
+      "key_focus_areas": ["Banking & Monetary Policy", "Inflation & GDP", "External Sector & BoP", "Agri Subsidies & MSP", "PDS & Food Security"]
+    },
+    {
+      "subject": "Environment & Ecology",
+      "avg_questions": 15.8,
+      "percentage": 15.8,
+      "tier": "High-Yield Trio",
+      "trend": [
+        { "year": 2019, "questions": 17 },
+        { "year": 2020, "questions": 15 },
+        { "year": 2021, "questions": 15 },
+        { "year": 2022, "questions": 16 },
+        { "year": 2023, "questions": 14 },
+        { "year": 2024, "questions": 15 },
+        { "year": 2025, "questions": 16 }
+      ],
+      "key_focus_areas": ["Protected Areas (National Parks, Sanctuaries)", "Biodiversity Conventions (CBD, CITES, UNFCCC)", "Climate Change & Emissions", "Pollution Norms & Environmental Acts"]
+    },
+    {
+      "subject": "Polity & Governance",
+      "avg_questions": 15.2,
+      "percentage": 15.2,
+      "tier": "High-Yield Trio",
+      "trend": [
+        { "year": 2019, "questions": 15 },
+        { "year": 2020, "questions": 17 },
+        { "year": 2021, "questions": 18 },
+        { "year": 2022, "questions": 10 },
+        { "year": 2023, "questions": 15 },
+        { "year": 2024, "questions": 16 },
+        { "year": 2025, "questions": 15 }
+      ],
+      "key_focus_areas": ["Preamble & Fundamental Rights", "Directive Principles & Fundamental Duties", "Parliament & State Legislatures", "Judiciary & Basic Structure", "Constitutional & Quasi-Judicial Bodies"]
+    },
+    {
+      "subject": "Geography & Mapping",
+      "avg_questions": 12.6,
+      "percentage": 12.6,
+      "tier": "Core Foundation",
+      "trend": [
+        { "year": 2019, "questions": 14 },
+        { "year": 2020, "questions": 10 },
+        { "year": 2021, "questions": 12 },
+        { "year": 2022, "questions": 12 },
+        { "year": 2023, "questions": 16 },
+        { "year": 2024, "questions": 13 },
+        { "year": 2025, "questions": 14 }
+      ],
+      "key_focus_areas": ["Indian River Systems & Tributaries", "Monsoon & Climatology", "Resource Distribution & Minerals", "World Mapping & Geopolitical Chokepoints"]
+    },
+    {
+      "subject": "Science & Technology",
+      "avg_questions": 11.2,
+      "percentage": 11.2,
+      "tier": "Applied & Dynamic",
+      "trend": [
+        { "year": 2019, "questions": 10 },
+        { "year": 2020, "questions": 10 },
+        { "year": 2021, "questions": 11 },
+        { "year": 2022, "questions": 14 },
+        { "year": 2023, "questions": 10 },
+        { "year": 2024, "questions": 11 },
+        { "year": 2025, "questions": 11 }
+      ],
+      "key_focus_areas": ["Biotechnology & Gene Editing (CRISPR)", "Space Tech & ISRO Missions", "Defense & Missiles", "AI, Quantum Computing & Nanotechnology"]
+    },
+    {
+      "subject": "Current Affairs & IR",
+      "avg_questions": 10.2,
+      "percentage": 10.2,
+      "tier": "Dynamic",
+      "trend": [
+        { "year": 2019, "questions": 8 },
+        { "year": 2020, "questions": 7 },
+        { "year": 2021, "questions": 10 },
+        { "year": 2022, "questions": 14 },
+        { "year": 2023, "questions": 18 },
+        { "year": 2024, "questions": 12 },
+        { "year": 2025, "questions": 12 }
+      ],
+      "key_focus_areas": ["International Treaties & Groupings (G20, QUAD, SCO)", "Bilateral Relations & Agreements", "Government Welfare Schemes & Indices"]
+    },
+    {
+      "subject": "Ancient, Medieval & Culture",
+      "avg_questions": 9.8,
+      "percentage": 9.8,
+      "tier": "Foundational",
+      "trend": [
+        { "year": 2019, "questions": 9 },
+        { "year": 2020, "questions": 10 },
+        { "year": 2021, "questions": 12 },
+        { "year": 2022, "questions": 10 },
+        { "year": 2023, "questions": 9 },
+        { "year": 2024, "questions": 8 },
+        { "year": 2025, "questions": 9 }
+      ],
+      "key_focus_areas": ["Buddhism & Jainism", "Indus Valley Civilization & Vedic Period", "Mauryan & Gupta Empires", "Bhakti & Sufi Traditions", "Temple Architecture & Classical Arts"]
+    },
+    {
+      "subject": "Modern Indian History",
+      "avg_questions": 7.1,
+      "percentage": 7.1,
+      "tier": "Foundational",
+      "trend": [
+        { "year": 2019, "questions": 6 },
+        { "year": 2020, "questions": 8 },
+        { "year": 2021, "questions": 8 },
+        { "year": 2022, "questions": 6 },
+        { "year": 2023, "questions": 4 },
+        { "year": 2024, "questions": 7 },
+        { "year": 2025, "questions": 6 }
+      ],
+      "key_focus_areas": ["British Acts & Constitutional Milestones", "1857 Revolt & Early Resistance", "Gandhian Movements & Freedom Struggle", "Social-Religious Reform Movements", "Tribal & Peasant Movements"]
+    }
+  ],
+  "high_yield_trio_percentage": 49.1,
+  "mains_papers_breakdown": [
+    {
+      "paper": "General Studies-I (250 Marks)",
+      "sections": [
+        { "name": "World & Indian Geography", "marks_range": "100–110 Marks", "percentage": "42%" },
+        { "name": "Indian Society & Social Issues", "marks_range": "65–75 Marks", "percentage": "28%" },
+        { "name": "Modern History & Freedom Movement", "marks_range": "40–50 Marks", "percentage": "18%" },
+        { "name": "Art & Culture", "marks_range": "25–35 Marks", "percentage": "12%" }
+      ]
+    },
+    {
+      "paper": "General Studies-II (250 Marks)",
+      "sections": [
+        { "name": "Indian Constitution & Polity", "marks_range": "100–115 Marks", "percentage": "44%" },
+        { "name": "Governance, Welfare & Social Justice", "marks_range": "75–85 Marks", "percentage": "32%" },
+        { "name": "International Relations (IR)", "marks_range": "50–60 Marks", "percentage": "24%" }
+      ]
+    },
+    {
+      "paper": "General Studies-III (250 Marks)",
+      "sections": [
+        { "name": "Economy, Agriculture & Infra", "marks_range": "110–125 Marks", "percentage": "48%" },
+        { "name": "Internal Security & Cyber Warfare", "marks_range": "50 Marks", "percentage": "20%" },
+        { "name": "Environment & Disaster Management", "marks_range": "45–55 Marks", "percentage": "20%" },
+        { "name": "Science & Technology", "marks_range": "30–40 Marks", "percentage": "12%" }
+      ]
+    },
+    {
+      "paper": "General Studies-IV (Ethics - 250 Marks)",
+      "sections": [
+        { "name": "Section A: Theory, Thinkers & Public Values", "marks_range": "120–130 Marks", "percentage": "50%" },
+        { "name": "Section B: Practical Case Studies (6 x 20 Marks)", "marks_range": "120–130 Marks", "percentage": "50%" }
+      ]
+    }
+  ]
+}

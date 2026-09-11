@@ -2,6 +2,11 @@
 
 A comprehensive, production-grade architectural blueprint for a dedicated **UPSC Civil Services Examination (CSE) Tracker**. Designed specifically around the realities of UPSC preparation: a ~750 micro-topic syllabus hierarchy, multi-round spaced repetition revision cycles, Prelims negative marking error diagnostics, Mains answer-writing time tracking, and offline-first study hall usability.
 
+> 🚀 **Quick Links:**
+> - 📄 **[Technical Implementation Plan](TECHNICAL_PLAN.md)**: Full architecture, modules to include, IndexedDB schemas, and execution roadmap.
+> - 🏛️ **[Official Exam Roadmap & Specs](exam-tracker.md)**: Official syllabus, 10-year PYQ weightage, and All-India Mock Rank engine.
+> - 🧮 **[UPSC Prelims Rank & Score Calculator](calculator.html)**: Interactive negative-marking & error autopsy calculator.
+
 ---
 
 ## 📌 Table of Contents

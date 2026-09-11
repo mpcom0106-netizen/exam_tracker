@@ -1,0 +1,187 @@
+{
+  "stage": "MAINS",
+  "total_marks": 1750,
+  "papers": [
+    {
+      "id": "mains-essay",
+      "name": "Paper-I: Essay (250 Marks)",
+      "total_marks": 250,
+      "duration_hours": 3,
+      "sections": [
+        {
+          "id": "essay-section-a",
+          "title": "Section A: Philosophical & Abstract Themes",
+          "topics": [
+            { "id": "essay-1", "title": "Philosophical Epigrams & Ethics in Life", "pyqs": 12 },
+            { "id": "essay-2", "title": "Education, Human Potential & Wisdom vs Information", "pyqs": 10 },
+            { "id": "essay-3", "title": "Individual Freedom vs Collective Order", "pyqs": 8 }
+          ]
+        },
+        {
+          "id": "essay-section-b",
+          "title": "Section B: Socio-Economic, Environmental & Geopolitical Themes",
+          "topics": [
+            { "id": "essay-4", "title": "Technology, Artificial Intelligence & Human Labor", "pyqs": 9 },
+            { "id": "essay-5", "title": "Inclusive Economic Growth & Climate Justice", "pyqs": 11 },
+            { "id": "essay-6", "title": "Women Empowerment & Changing Social Dynamics", "pyqs": 12 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mains-gs1",
+      "name": "Paper-II: General Studies-I (250 Marks)",
+      "total_marks": 250,
+      "duration_hours": 3,
+      "sections": [
+        {
+          "id": "gs1-culture-history",
+          "title": "Indian Heritage, Culture & Modern History",
+          "topics": [
+            { "id": "gs1-1", "title": "Indian Art Forms, Literature & Architecture from Ancient to Modern Times", "pyqs": 25 },
+            { "id": "gs1-2", "title": "Modern Indian History from mid-18th Century to Present (Key Personalities & Issues)", "pyqs": 22 },
+            { "id": "gs1-3", "title": "The Freedom Struggle: Various Stages, Ideologies & Regional Contributors", "pyqs": 28 },
+            { "id": "gs1-4", "title": "Post-Independence Consolidation & Linguistic Reorganization of States", "pyqs": 10 },
+            { "id": "gs1-5", "title": "History of the World: Industrial Revolution, World Wars, Decolonisation, Socialism & Capitalism", "pyqs": 14 }
+          ]
+        },
+        {
+          "id": "gs1-society",
+          "title": "Indian Society & Social Dynamics",
+          "topics": [
+            { "id": "gs1-6", "title": "Salient Features of Indian Society & Diversity of India", "pyqs": 18 },
+            { "id": "gs1-7", "title": "Role of Women & Women’s Organizations, Population & Associated Issues", "pyqs": 24 },
+            { "id": "gs1-8", "title": "Poverty, Developmental Issues, Urbanization: Problems & Remedies", "pyqs": 21 },
+            { "id": "gs1-9", "title": "Effects of Globalization on Indian Society", "pyqs": 16 },
+            { "id": "gs1-10", "title": "Social Empowerment, Communalism, Regionalism & Secularism", "pyqs": 19 }
+          ]
+        },
+        {
+          "id": "gs1-geography",
+          "title": "World & Indian Geography",
+          "topics": [
+            { "id": "gs1-11", "title": "Salient Features of World's Physical Geography & Natural Phenomena (Earthquakes, Cyclones)", "pyqs": 32 },
+            { "id": "gs1-12", "title": "Distribution of Key Natural Resources Across World & South Asia", "pyqs": 22 },
+            { "id": "gs1-13", "title": "Factors Responsible for Location of Primary, Secondary & Tertiary Industries", "pyqs": 26 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mains-gs2",
+      "name": "Paper-III: General Studies-II (250 Marks)",
+      "total_marks": 250,
+      "duration_hours": 3,
+      "sections": [
+        {
+          "id": "gs2-polity-const",
+          "title": "Indian Constitution, Political System & Federalism",
+          "topics": [
+            { "id": "gs2-1", "title": "Indian Constitution: Historical Underpinnings, Evolution, Amendments & Basic Structure", "pyqs": 26 },
+            { "id": "gs2-2", "title": "Functions & Responsibilities of Union & States, Federal Challenges & Local Devolution", "pyqs": 30 },
+            { "id": "gs2-3", "title": "Separation of Powers, Dispute Redressal Mechanisms & Institutions", "pyqs": 16 },
+            { "id": "gs2-4", "title": "Comparison of Indian Constitutional Scheme with Other Major Democracies", "pyqs": 15 },
+            { "id": "gs2-5", "title": "Parliament & State Legislatures: Powers, Privileges, Functioning & Decline of Productivity", "pyqs": 24 },
+            { "id": "gs2-6", "title": "Representation of People’s Act (RPA 1950 & 1951) & Electoral Reforms", "pyqs": 18 },
+            { "id": "gs2-7", "title": "Constitutional & Quasi-Judicial Bodies: Mandates, Autonomy & Challenges", "pyqs": 22 }
+          ]
+        },
+        {
+          "id": "gs2-governance-welfare",
+          "title": "Governance, Citizen Rights & Social Justice",
+          "topics": [
+            { "id": "gs2-8", "title": "Government Policies & Interventions for Development in Various Sectors", "pyqs": 22 },
+            { "id": "gs2-9", "title": "Development Industry: Role of NGOs, SHGs, Charities, Donors & Civil Society", "pyqs": 16 },
+            { "id": "gs2-10", "title": "Welfare Schemes for Vulnerable Sections: Performance & Mechanisms", "pyqs": 26 },
+            { "id": "gs2-11", "title": "Issues Relating to Health, Education, Human Capital & Hunger/Poverty", "pyqs": 31 },
+            { "id": "gs2-12", "title": "Aspects of Governance: Transparency, Accountability, E-Governance, Citizen Charters", "pyqs": 25 },
+            { "id": "gs2-13", "title": "Role of Civil Services in a Democracy", "pyqs": 14 }
+          ]
+        },
+        {
+          "id": "gs2-international",
+          "title": "International Relations & Strategic Affairs",
+          "topics": [
+            { "id": "gs2-14", "title": "India and its Neighbourhood Relations (South Asia & Border Diplomacy)", "pyqs": 27 },
+            { "id": "gs2-15", "title": "Bilateral, Regional & Global Groupings Involving India (QUAD, BRICS, SCO, G20)", "pyqs": 29 },
+            { "id": "gs2-16", "title": "Effect of Policies of Developed & Developing Nations on India's Interests", "pyqs": 18 },
+            { "id": "gs2-17", "title": "Important International Institutions, Agencies & Fora: Mandate & Reforms", "pyqs": 20 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mains-gs3",
+      "name": "Paper-IV: General Studies-III (250 Marks)",
+      "total_marks": 250,
+      "duration_hours": 3,
+      "sections": [
+        {
+          "id": "gs3-economy-agri",
+          "title": "Indian Economy, Agriculture & Infrastructure",
+          "topics": [
+            { "id": "gs3-1", "title": "Indian Economy: Resource Mobilization, Inclusive Growth & Employment", "pyqs": 28 },
+            { "id": "gs3-2", "title": "Government Budgeting: Capital vs Revenue, Fiscal Consolidation", "pyqs": 18 },
+            { "id": "gs3-3", "title": "Major Crops, Cropping Patterns, Irrigation Systems & E-Tech for Farmers", "pyqs": 24 },
+            { "id": "gs3-4", "title": "Farm Subsidies, Minimum Support Prices (MSP), PDS, Buffer Stocks & Food Security", "pyqs": 32 },
+            { "id": "gs3-5", "title": "Food Processing Industries: Scope, Supply Chain Management & Upstream/Downstream", "pyqs": 19 },
+            { "id": "gs3-6", "title": "Land Reforms in India: Historical Stages & Modern Digital Land Records", "pyqs": 12 },
+            { "id": "gs3-7", "title": "Infrastructure: Energy, Ports, Roads, Airports, Railways & Investment Models (PPP)", "pyqs": 23 }
+          ]
+        },
+        {
+          "id": "gs3-scitech-env",
+          "title": "Science & Tech, Environment & Disaster Management",
+          "topics": [
+            { "id": "gs3-8", "title": "Science & Technology: Developments & Everyday Applications, Indigenization", "pyqs": 22 },
+            { "id": "gs3-9", "title": "Awareness in IT, Space, Computers, Robotics, Nanotechnology, Biotech & IPR", "pyqs": 28 },
+            { "id": "gs3-10", "title": "Conservation, Environmental Pollution & Degradation, Environmental Impact Assessment (EIA)", "pyqs": 27 },
+            { "id": "gs3-11", "title": "Disaster and Disaster Management (NDMA Guidelines, Sendai Framework)", "pyqs": 24 }
+          ]
+        },
+        {
+          "id": "gs3-security",
+          "title": "Internal Security & Defense Architecture",
+          "topics": [
+            { "id": "gs3-12", "title": "Linkages Between Development and Spread of Extremism (Left Wing Extremism)", "pyqs": 16 },
+            { "id": "gs3-13", "title": "Role of External State and Non-State Actors in Internal Security", "pyqs": 18 },
+            { "id": "gs3-14", "title": "Cyber Security Basics, Communication Networks & Money Laundering Prevention", "pyqs": 24 },
+            { "id": "gs3-15", "title": "Border Management & Security Challenges, Nexus of Crime & Terrorism", "pyqs": 21 },
+            { "id": "gs3-16", "title": "Various Security Forces, Paramilitary Agencies & Their Mandates", "pyqs": 14 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mains-gs4",
+      "name": "Paper-V: General Studies-IV (Ethics - 250 Marks)",
+      "total_marks": 250,
+      "duration_hours": 3,
+      "sections": [
+        {
+          "id": "gs4-theory",
+          "title": "Section A: Ethics Theory, Human Values & Probity",
+          "topics": [
+            { "id": "gs4-1", "title": "Ethics & Human Interface: Essence, Determinants, Consequences & Private vs Public Ethics", "pyqs": 20 },
+            { "id": "gs4-2", "title": "Human Values: Lessons from Lives of Great Leaders, Reformers & Administrators", "pyqs": 18 },
+            { "id": "gs4-3", "title": "Attitude: Content, Structure, Moral Attitudes & Social Persuasion", "pyqs": 16 },
+            { "id": "gs4-4", "title": "Civil Service Values: Integrity, Impartiality, Objectivity, Empathy & Compassion", "pyqs": 22 },
+            { "id": "gs4-5", "title": "Emotional Intelligence: Concepts, Utilities & Application in Governance", "pyqs": 17 },
+            { "id": "gs4-6", "title": "Philosophical Basis of Governance: Thinkers from India and the World", "pyqs": 19 },
+            { "id": "gs4-7", "title": "Probity in Governance: RTI, Codes of Ethics, Citizen’s Charters & Work Culture", "pyqs": 25 }
+          ]
+        },
+        {
+          "id": "gs4-cases",
+          "title": "Section B: Practical Administrative Case Studies (120–130 Marks)",
+          "topics": [
+            { "id": "gs4-8", "title": "Case Studies on Conflict of Interest & Bribery Offers", "pyqs": 25 },
+            { "id": "gs4-9", "title": "Case Studies on Public Safety vs Political Pressure", "pyqs": 24 },
+            { "id": "gs4-10", "title": "Case Studies on Environmental Clearance vs Industrial Development", "pyqs": 20 },
+            { "id": "gs4-11", "title": "Case Studies on Gender Harassment, Whistleblowing & Institutional Integrity", "pyqs": 22 }
+          ]
+        }
+      ]
+    }
+  ]
+}

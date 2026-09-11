@@ -1,0 +1,39 @@
+{
+  "milestones": {
+    "notification_month": "February",
+    "otr_window_days": 21,
+    "deadline_time": "18:00",
+    "admit_card_weeks_before": 3,
+    "prelims_date": "2026-05-24",
+    "mains_date": "2026-09-18"
+  },
+  "prelims_shifts": [
+    {
+      "paper": "Paper-I: General Studies (GS)",
+      "time": "09:30 AM – 11:30 AM",
+      "gate_close": "09:00 AM",
+      "duration_minutes": 120,
+      "questions": 100,
+      "marks": 200,
+      "nature": "Merit Ranking for Mains",
+      "negative_penalty": 0.667
+    },
+    {
+      "paper": "Paper-II: CSAT (Aptitude)",
+      "time": "02:30 PM – 04:30 PM",
+      "gate_close": "02:00 PM",
+      "duration_minutes": 120,
+      "questions": 80,
+      "marks": 200,
+      "nature": "Qualifying Only (Min 33% = 66.67 marks)",
+      "negative_penalty": 0.833
+    }
+  ],
+  "mains_schedule": [
+    { "day": "Day 1 (Friday)", "forenoon": "Paper-I: Essay (250 Marks)", "afternoon": "No Session (Self-Prep)" },
+    { "day": "Day 2 (Saturday)", "forenoon": "Paper-II: GS-I Heritage, History, Geography, Society (250 M)", "afternoon": "Paper-III: GS-II Governance, Polity, IR (250 M)" },
+    { "day": "Day 3 (Sunday)", "forenoon": "Paper-IV: GS-III Economy, Sci-Tech, Env, Security (250 M)", "afternoon": "Paper-V: GS-IV Ethics, Integrity, Aptitude (250 M)" },
+    { "day": "Day 4 (Saturday)", "forenoon": "Paper-A: Indian Language (300 Marks - Qualifying)", "afternoon": "Paper-B: English Language (300 Marks - Qualifying)" },
+    { "day": "Day 5 (Sunday)", "forenoon": "Paper-VI: Optional Subject Paper-1 (250 Marks)", "afternoon": "Paper-VII: Optional Subject Paper-2 (250 Marks)" }
+  ]
+}

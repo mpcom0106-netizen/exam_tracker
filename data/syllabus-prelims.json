@@ -1,0 +1,290 @@
+{
+  "stage": "PRELIMS",
+  "papers": [
+    {
+      "id": "prelims-gs",
+      "name": "Paper-I: General Studies (GS)",
+      "total_marks": 200,
+      "questions": 100,
+      "subjects": [
+        {
+          "id": "gs-polity",
+          "name": "Indian Polity & Governance",
+          "weightage_tier": "High-Yield",
+          "avg_questions": 15.2,
+          "modules": [
+            {
+              "id": "pol-const-framework",
+              "title": "Constitutional Framework & Historical Underpinnings",
+              "weightage": 5,
+              "topics": [
+                { "id": "pol-1", "title": "Making of Constitution & Salient Features", "pyqs": 6 },
+                { "id": "pol-2", "title": "Preamble: Objectives, Amendability & Key Cases", "pyqs": 9 },
+                { "id": "pol-3", "title": "Fundamental Rights (Articles 12-35) & Writ Jurisdiction", "pyqs": 18 },
+                { "id": "pol-4", "title": "Directive Principles of State Policy (DPSP) & Fundamental Duties", "pyqs": 12 },
+                { "id": "pol-5", "title": "Basic Structure Doctrine & Kesavananda Bharati Landmark", "pyqs": 7 },
+                { "id": "pol-6", "title": "Amendment Procedures (Article 368) & Special Majorities", "pyqs": 8 }
+              ]
+            },
+            {
+              "id": "pol-system-govt",
+              "title": "System of Government & Union Executive",
+              "weightage": 5,
+              "topics": [
+                { "id": "pol-7", "title": "President & Governor: Powers, Ordinances & Pardoning Powers", "pyqs": 14 },
+                { "id": "pol-8", "title": "Prime Minister, Union Council of Ministers & Cabinet Committees", "pyqs": 5 },
+                { "id": "pol-9", "title": "Parliament: Sessions, Budget Process, Motions, Parliamentary Committees", "pyqs": 22 },
+                { "id": "pol-10", "title": "State Legislatures & Legislative Councils (Vidhan Parishad)", "pyqs": 6 },
+                { "id": "pol-11", "title": "Federal Relations: Inter-State Council, Finance Commission & Zonal Councils", "pyqs": 8 },
+                { "id": "pol-12", "title": "Emergency Provisions (Articles 352, 356, 360) & Safeguards", "pyqs": 5 }
+              ]
+            },
+            {
+              "id": "pol-judiciary-bodies",
+              "title": "Judiciary & Constitutional / Non-Constitutional Bodies",
+              "weightage": 4,
+              "topics": [
+                { "id": "pol-13", "title": "Supreme Court & High Courts: Jurisdiction, Appointments & Collegium", "pyqs": 16 },
+                { "id": "pol-14", "title": "Panchayati Raj (73rd Amendment) & Municipalities (74th Amendment)", "pyqs": 12 },
+                { "id": "pol-15", "title": "Election Commission of India (ECI) & Representation of People Acts", "pyqs": 11 },
+                { "id": "pol-16", "title": "CAG, UPSC, Attorney General & Advocate General", "pyqs": 8 },
+                { "id": "pol-17", "title": "Statutory Bodies: NHRC, CIC, CVC, Lokpal & NITI Aayog", "pyqs": 7 }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "gs-economy",
+          "name": "Indian Economy & Agriculture",
+          "weightage_tier": "High-Yield",
+          "avg_questions": 18.1,
+          "modules": [
+            {
+              "id": "eco-macro",
+              "title": "Macroeconomics, Growth & Inflation",
+              "weightage": 5,
+              "topics": [
+                { "id": "eco-1", "title": "National Income Accounting: GDP, GNI, Real vs Nominal", "pyqs": 8 },
+                { "id": "eco-2", "title": "Inflation Indices: CPI, WPI, Core Inflation & Headline Inflation", "pyqs": 14 },
+                { "id": "eco-3", "title": "RBI Monetary Policy: Repo, SDF, CRR, OMO, Monetary Policy Committee", "pyqs": 20 },
+                { "id": "eco-4", "title": "Money Supply (M1-M4), Velocity of Money, High-Powered Money", "pyqs": 9 },
+                { "id": "eco-5", "title": "Government Budgeting, Fiscal Deficit, Revenue Deficit, FRBM Act", "pyqs": 15 },
+                { "id": "eco-6", "title": "Taxation Structure: Direct vs Indirect Taxes, GST Council", "pyqs": 10 }
+              ]
+            },
+            {
+              "id": "eco-banking-external",
+              "title": "Banking, Financial Markets & External Sector",
+              "weightage": 5,
+              "topics": [
+                { "id": "eco-7", "title": "Banking Sector: NPAs, IBC 2016, Bad Bank (NARCL), Prompt Corrective Action", "pyqs": 12 },
+                { "id": "eco-8", "title": "Capital Markets: SEBI, Sovereign Green Bonds, Masala Bonds, T-Bills", "pyqs": 11 },
+                { "id": "eco-9", "title": "Balance of Payments (BoP), Current Account Deficit, FOREX Reserves", "pyqs": 16 },
+                { "id": "eco-10", "title": "Exchange Rate Mechanism: NEER, REER, Currency Depreciation vs Devaluation", "pyqs": 8 },
+                { "id": "eco-11", "title": "International Institutions: IMF SDRs, World Bank, WTO Disputes & Agreements", "pyqs": 13 }
+              ]
+            },
+            {
+              "id": "eco-agri-social",
+              "title": "Agriculture, Infrastructure & Sustainable Development",
+              "weightage": 5,
+              "topics": [
+                { "id": "eco-12", "title": "Agricultural Inputs: Seed Varieties, Fertilizers (Urea, Nano-DAP), Irrigation", "pyqs": 16 },
+                { "id": "eco-13", "title": "MSP Mechanism, CACP Formula, PM-KISAN & PM Fasal Bima Yojana", "pyqs": 15 },
+                { "id": "eco-14", "title": "PDS, Buffer Stock Norms, Food Corporation of India (FCI) & NFSA 2013", "pyqs": 11 },
+                { "id": "eco-15", "title": "Infrastructure: National Logistics Policy, PM Gati Shakti, BharatNet", "pyqs": 7 },
+                { "id": "eco-16", "title": "Poverty Lines, Inequality (Gini Coefficient) & Multidimensional Poverty Index", "pyqs": 9 }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "gs-environment",
+          "name": "Environment & Ecology",
+          "weightage_tier": "High-Yield",
+          "avg_questions": 15.8,
+          "modules": [
+            {
+              "id": "env-ecosystem-bio",
+              "title": "Ecology & Biodiversity Conservation",
+              "weightage": 5,
+              "topics": [
+                { "id": "env-1", "title": "Ecosystem Concepts: Food Webs, Trophic Levels, Ecological Pyramids", "pyqs": 11 },
+                { "id": "env-2", "title": "Terrestrial & Aquatic Biomes: Mangroves, Coral Reefs & Wetlands", "pyqs": 19 },
+                { "id": "env-3", "title": "Protected Areas: National Parks, Wildlife Sanctuaries, Biosphere Reserves", "pyqs": 24 },
+                { "id": "env-4", "title": "Keystone Species, Invasive Alien Species, IUCN Red List Categories", "pyqs": 18 },
+                { "id": "env-5", "title": "Project Tiger, Project Elephant, Project Cheetah & Wildlife Conservation", "pyqs": 12 }
+              ]
+            },
+            {
+              "id": "env-climate-treaties",
+              "title": "Climate Change, Pollution & Environmental Laws",
+              "weightage": 5,
+              "topics": [
+                { "id": "env-6", "title": "UNFCCC, Kyoto Protocol, Paris Agreement (NDCs) & CoP Declarations", "pyqs": 16 },
+                { "id": "env-7", "title": "Convention on Biological Diversity (CBD), Kunming-Montreal Framework", "pyqs": 10 },
+                { "id": "env-8", "title": "CITES, CMS (Bonn Convention), Ramsar Convention & Montreux Record", "pyqs": 14 },
+                { "id": "env-9", "title": "Pollution: Particulate Matter (PM2.5), AQI, Fly Ash, E-Waste & Plastic Rules", "pyqs": 13 },
+                { "id": "env-10", "title": "Environmental Legislation: WPA 1972, EPA 1986, Forest Rights Act 2006", "pyqs": 15 },
+                { "id": "env-11", "title": "National Green Tribunal (NGT) & Central Pollution Control Board (CPCB)", "pyqs": 6 }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "gs-geography",
+          "name": "Geography & Mapping",
+          "weightage_tier": "Core Foundation",
+          "avg_questions": 12.6,
+          "modules": [
+            {
+              "id": "geo-physical",
+              "title": "Physical Geography & Climatology",
+              "weightage": 4,
+              "topics": [
+                { "id": "geo-1", "title": "Plate Tectonics, Earthquakes, Volcanoes & Tsunamis", "pyqs": 10 },
+                { "id": "geo-2", "title": "Atmospheric Circulation, Pressure Belts & Jet Streams", "pyqs": 11 },
+                { "id": "geo-3", "title": "Tropical & Temperate Cyclones: Formation & Differences", "pyqs": 9 },
+                { "id": "geo-4", "title": "Ocean Currents, Salinity, Tides & Upwelling", "pyqs": 8 }
+              ]
+            },
+            {
+              "id": "geo-indian-mapping",
+              "title": "Indian Physical Geography & World Mapping",
+              "weightage": 5,
+              "topics": [
+                { "id": "geo-5", "title": "Himalayan & Peninsular River Systems, Drainage Patterns & Tributaries", "pyqs": 22 },
+                { "id": "geo-6", "title": "Indian Monsoon Mechanism: El Niño, La Niña, IOD & Madden-Julian Oscillation", "pyqs": 14 },
+                { "id": "geo-7", "title": "Soil Types in India: Alluvial, Black, Laterite & Erosion Measures", "pyqs": 9 },
+                { "id": "geo-8", "title": "World Mapping: Red Sea, Black Sea, Mediterranean, Strategic Straits & Chokepoints", "pyqs": 19 },
+                { "id": "geo-9", "title": "Locations in News: West Asia, Horn of Africa, Central Asia & South China Sea", "pyqs": 17 }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "gs-history",
+          "name": "History & Art and Culture",
+          "weightage_tier": "Foundational",
+          "avg_questions": 16.9,
+          "modules": [
+            {
+              "id": "hist-ancient-med",
+              "title": "Ancient & Medieval India",
+              "weightage": 4,
+              "topics": [
+                { "id": "hist-1", "title": "Indus Valley Civilization: Town Planning, Seals, Trade & Sites", "pyqs": 8 },
+                { "id": "hist-2", "title": "Buddhism & Jainism: Philosophies, Councils, Sects (Mahayana, Hinayana)", "pyqs": 21 },
+                { "id": "hist-3", "title": "Mauryan Empire: Ashokan Edicts, Administration & Dhamma", "pyqs": 7 },
+                { "id": "hist-4", "title": "Gupta Period: Literature, Coinage, Science & Harsha Empire", "pyqs": 6 },
+                { "id": "hist-5", "title": "South Indian Dynasties: Chola Navy, Pallavas, Rashtrakutas & Chalukyas", "pyqs": 11 },
+                { "id": "hist-6", "title": "Vijayanagara Empire: Administration, Travellers, Hampi Architecture", "pyqs": 9 },
+                { "id": "hist-7", "title": "Bhakti & Sufi Traditions: Ramanuja, Kabir, Guru Nanak, Chishti Order", "pyqs": 10 }
+              ]
+            },
+            {
+              "id": "hist-art-culture",
+              "title": "Indian Art, Architecture & Heritage",
+              "weightage": 4,
+              "topics": [
+                { "id": "art-1", "title": "Temple Architecture: Nagara, Dravida & Vesara Styles", "pyqs": 12 },
+                { "id": "art-2", "title": "Rock-Cut Caves: Ajanta, Ellora, Elephanta & Bhimbetka", "pyqs": 9 },
+                { "id": "art-3", "title": "Classical Dance Forms & Sangeet Natak Akademi Traditions", "pyqs": 7 },
+                { "id": "art-4", "title": "Classical & Folk Music, Musical Instruments & UNESCO Intangible Heritage", "pyqs": 6 }
+              ]
+            },
+            {
+              "id": "hist-modern",
+              "title": "Modern Indian History & Freedom Struggle",
+              "weightage": 4,
+              "topics": [
+                { "id": "mod-1", "title": "Socio-Religious Reform Movements: Brahmo Samaj, Arya Samaj, Phule", "pyqs": 8 },
+                { "id": "mod-2", "title": "1857 Revolt: Causes, Leadership, Spread & British Crown Takeover", "pyqs": 5 },
+                { "id": "mod-3", "title": "Moderate vs Extremist Era, Surat Split & Swadeshi Movement (1905)", "pyqs": 7 },
+                { "id": "mod-4", "title": "Gandhian Phase: Non-Cooperation, Civil Disobedience, Quit India Movement", "pyqs": 16 },
+                { "id": "mod-5", "title": "Constitutional Acts: 1909 Morley-Minto, 1919 Mont-Ford, 1935 GOI Act", "pyqs": 14 },
+                { "id": "mod-6", "title": "Revolutionary Nationalism, INA & Subhas Chandra Bose", "pyqs": 7 }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "gs-scitech",
+          "name": "Science & Technology",
+          "weightage_tier": "Applied",
+          "avg_questions": 11.2,
+          "modules": [
+            {
+              "id": "sci-applied",
+              "title": "Emerging Technologies, Space & Defense",
+              "weightage": 4,
+              "topics": [
+                { "id": "sci-1", "title": "Space Missions: Chandrayaan, Aditya-L1, Gaganyaan, James Webb", "pyqs": 17 },
+                { "id": "sci-2", "title": "Biotechnology: CRISPR-Cas9, Stem Cells, mRNA Vaccines, DNA Profiling", "pyqs": 16 },
+                { "id": "sci-3", "title": "Information Tech: Artificial Intelligence, Quantum Computing, 5G/6G, Blockchain", "pyqs": 13 },
+                { "id": "sci-4", "title": "Defense Tech: Ballistic vs Cruise Missiles, S-400, Nuclear Submarines", "pyqs": 8 },
+                { "id": "sci-5", "title": "Renewable Energy: Green Hydrogen, Solar Cells (Perovskite), Sodium-ion Batteries", "pyqs": 9 }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prelims-csat",
+      "name": "Paper-II: CSAT (Civil Services Aptitude Test)",
+      "total_marks": 200,
+      "questions": 80,
+      "qualifying_cutoff": 66.67,
+      "subjects": [
+        {
+          "id": "csat-comprehension",
+          "name": "Reading Comprehension",
+          "weightage_tier": "Qualifying Core",
+          "avg_questions": 27.0,
+          "modules": [
+            {
+              "id": "csat-rc-1",
+              "title": "Passage Types & Assumptions",
+              "weightage": 5,
+              "topics": [
+                { "id": "csat-1", "title": "Critical Message & Crux Identification", "pyqs": 45 },
+                { "id": "csat-2", "title": "Logical Inferences & Valid Deductions", "pyqs": 50 },
+                { "id": "csat-3", "title": "Implicit Assumptions in Argumentation", "pyqs": 40 }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "csat-quant-reasoning",
+          "name": "Quantitative Aptitude & Reasoning",
+          "weightage_tier": "Qualifying Core",
+          "avg_questions": 53.0,
+          "modules": [
+            {
+              "id": "csat-quant",
+              "title": "Basic Numeracy & Math (Class X Level)",
+              "weightage": 5,
+              "topics": [
+                { "id": "csat-4", "title": "Number System: Unit Digits, Divisibility Rules, Remainders", "pyqs": 35 },
+                { "id": "csat-5", "title": "Permutations & Combinations, Probability", "pyqs": 28 },
+                { "id": "csat-6", "title": "Percentages, Profit & Loss, Simple & Compound Interest", "pyqs": 18 },
+                { "id": "csat-7", "title": "Time, Speed & Distance, Relative Velocity", "pyqs": 14 }
+              ]
+            },
+            {
+              "id": "csat-reasoning",
+              "title": "Logical & Analytical Ability",
+              "weightage": 4,
+              "topics": [
+                { "id": "csat-8", "title": "Syllogisms & Verbal Logic Statements", "pyqs": 22 },
+                { "id": "csat-9", "title": "Seating Arrangements & Puzzle Solving", "pyqs": 25 },
+                { "id": "csat-10", "title": "Data Sufficiency (Is Statement 1 & 2 enough?)", "pyqs": 19 }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
